@@ -1,0 +1,17 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">  
+    <div>  
+      <label for="name">Nombre:</label>  
+      <input id="name" formControlName="name">  
+      <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">  
+        El nombre es requerido.  
+      </div>  
+    </div>  
+    <div>  
+      <label for="email">Correo Electrónico:</label>  
+      <input id="email" formControlName="email">  
+      <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">  
+        Introduce un correo válido.  
+      </div>  
+    </div>  
+    <button type="submit" [disabled]="myForm.invalid">Enviar</button>  
+  </form>  
